@@ -3,7 +3,7 @@ WORKDIR /app
 EXPOSE 8080
 ENV ASPNETCORE_URL=http://+:8080
 
-FROM mcr.microsoft.com/dotnetsdk:8.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY . .
 RUN dotnet restore "SanorjoLibraryNowAPI/SanorjoLibraryNowAPI.csproj"
