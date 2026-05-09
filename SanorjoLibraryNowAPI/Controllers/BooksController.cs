@@ -33,7 +33,7 @@ namespace QuijanoLibraryNowAPI.Controllers
 
             }
         };
-
+        [HttpGet]
         public IActionResult GetAll()
         {
             return Ok(new
@@ -44,6 +44,7 @@ namespace QuijanoLibraryNowAPI.Controllers
 
             });
         }
+        [HttpGet("{id}")]
 
         public IActionResult GetById(int id)
         {
@@ -63,7 +64,7 @@ namespace QuijanoLibraryNowAPI.Controllers
                 message = "Book Retrived"
             });
         }
-
+        [HttpPost]
         public IActionResult Create([FromBody] Book newBook)
         {
             newBook.Id = books.Count + 1;
@@ -78,7 +79,7 @@ namespace QuijanoLibraryNowAPI.Controllers
                 });
 
         }
-
+        [HttpPut("{id}")]
         public IActionResult Update(int id,
             [FromBody] Book Updatebook)
         {
@@ -104,7 +105,7 @@ namespace QuijanoLibraryNowAPI.Controllers
                 message = "Book Update"
             });
         }
-
+        [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             var book = books.FirstOrDefault(x => x.Id == id);
